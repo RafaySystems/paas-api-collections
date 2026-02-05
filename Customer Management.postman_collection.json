@@ -1,0 +1,205 @@
+{
+  "info": {
+    "_postman_id": "7a73e19d-f524-4913-a569-3d6dc66a0bad",
+    "name": "Customer Management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19777892",
+    "_collection_link": "https://go.postman.co/collection/19777892-7a73e19d-f524-4913-a569-3d6dc66a0bad?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Customer",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"fname.lname@example.com\",\n    \"organization_name\": \"Example Ltd\",\n    \"first_name\": \"fname\",\n    \"last_name\": \"lname\",\n    \"password\": \"notapassword\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://{{ops-console-domain}}/auth/v1/signup/organization/",
+          "protocol": "https",
+          "host": [
+            "{{ops-console-domain}}"
+          ],
+          "path": [
+            "auth",
+            "v1",
+            "signup",
+            "organization",
+            ""
+          ]
+        },
+        "description": "Gets information about the authenticated user."
+      },
+      "response": []
+    },
+    {
+      "name": "Search Customers List",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{ops-console-domain}}/auth/v1/organizations",
+          "protocol": "https",
+          "host": [
+            "{{ops-console-domain}}"
+          ],
+          "path": [
+            "auth",
+            "v1",
+            "organizations"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "10",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "offset",
+              "value": "0",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "name",
+              "value": "coke",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "external_id",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Customer",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}",
+          "protocol": "https",
+          "host": [
+            "{{ops-console-domain}}"
+          ],
+          "path": [
+            "auth",
+            "v1",
+            "organizations",
+            "{{org-id}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Customer",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "X-RAFAY-API-KEYID",
+            "value": "{{ops-api-key}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": \"{{org-id}}\",\n    \"name\": \"Example Ltd\",\n    \"description\": \"\",\n    \"settings\": {},\n    \"billing_address\": \"\",\n    \"active\": true,\n    \"approved\": true,\n    \"type\": \"free\",\n    \"address_line1\": \"\",\n    \"address_line2\": \"\",\n    \"city\": \"\",\n    \"state\": \"\",\n    \"country\": \"\",\n    \"partner_id\": \"d27v024\",\n    \"phone\": \"\",\n    \"zipcode\": \"\",\n    \"is_private\": true,\n    \"is_totp_enabled\": false,\n    \"published_workload_count\": 0,\n    \"psps_enabled\": true,\n    \"custom_psps_enabled\": true,\n    \"default_blueprints_enabled\": true,\n    \"referer\": null,\n    \"enable_drift_webhook\": true,\n    \"protected_resources\": {\n        \"Cluster\": true,\n        \"Environment\": true\n    },\n    \"external_id\": \"\",\n    \"system_templates_enabled\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}",
+          "protocol": "https",
+          "host": [
+            "{{ops-console-domain}}"
+          ],
+          "path": [
+            "auth",
+            "v1",
+            "organizations",
+            "{{org-id}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://farming-simulator.pstmn.io"
+    },
+    {
+      "key": "org-id",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

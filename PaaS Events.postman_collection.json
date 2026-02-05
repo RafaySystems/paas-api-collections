@@ -1,0 +1,159 @@
+{
+  "info": {
+    "_postman_id": "0f8bc5c9-e1cd-41ad-8755-2586fe158765",
+    "name": "PaaS Events",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19777892",
+    "_collection_link": "https://go.postman.co/collection/19777892-0f8bc5c9-e1cd-41ad-8755-2586fe158765?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Compute Instance Events",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{default-org-api-key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://{{console-domain}}/apis/dashboard.envmgmt.io/v1/events/paas/partner/kind/compute/instance?range_from={{start_time}}&range_to={{end_time}}",
+          "protocol": "https",
+          "host": [
+            "{{console-domain}}"
+          ],
+          "path": [
+            "apis",
+            "dashboard.envmgmt.io",
+            "v1",
+            "events",
+            "paas",
+            "partner",
+            "kind",
+            "compute",
+            "instance"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "100",
+              "disabled": true
+            },
+            {
+              "key": "range_from",
+              "value": "{{start_time}}"
+            },
+            {
+              "key": "range_to",
+              "value": "{{end_time}}"
+            },
+            {
+              "key": "status",
+              "value": "success",
+              "disabled": true
+            },
+            {
+              "key": "orderby",
+              "value": "created_at",
+              "disabled": true
+            },
+            {
+              "key": "order",
+              "value": "desc",
+              "disabled": true
+            },
+            {
+              "key": "org_id",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "profile_id",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Service Instance Events",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{default-org-api-key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://{{console-domain}}/apis/dashboard.envmgmt.io/v1/events/paas/partner/kind/compute/instance?range_from={{start_time}}&range_to={{end_time}}",
+          "protocol": "https",
+          "host": [
+            "{{console-domain}}"
+          ],
+          "path": [
+            "apis",
+            "dashboard.envmgmt.io",
+            "v1",
+            "events",
+            "paas",
+            "partner",
+            "kind",
+            "compute",
+            "instance"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "100",
+              "disabled": true
+            },
+            {
+              "key": "range_from",
+              "value": "{{start_time}}"
+            },
+            {
+              "key": "range_to",
+              "value": "{{end_time}}"
+            },
+            {
+              "key": "status",
+              "value": "success",
+              "disabled": true
+            },
+            {
+              "key": "orderby",
+              "value": "created_at",
+              "disabled": true
+            },
+            {
+              "key": "order",
+              "value": "desc",
+              "disabled": true
+            },
+            {
+              "key": "org_id",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "profile_id",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

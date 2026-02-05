@@ -1,0 +1,243 @@
+{
+  "info": {
+    "_postman_id": "e2b990ab-bc69-4f32-9546-3ac0d7a90273",
+    "name": "Usage Metrics",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19777892",
+    "_collection_link": "https://go.postman.co/collection/19777892-e2b990ab-bc69-4f32-9546-3ac0d7a90273?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Compute Instance Usage",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{default-org-api-key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://{{console-domain}}/apis/billing.envmgmt.io/v1/metrics/partner/instance/kind/compute/usage?range_from={{start_time}}&range_to={{end_time}}",
+          "protocol": "https",
+          "host": [
+            "{{console-domain}}"
+          ],
+          "path": [
+            "apis",
+            "billing.envmgmt.io",
+            "v1",
+            "metrics",
+            "partner",
+            "instance",
+            "kind",
+            "compute",
+            "usage"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "400",
+              "disabled": true
+            },
+            {
+              "key": "range_from",
+              "value": "{{start_time}}"
+            },
+            {
+              "key": "range_to",
+              "value": "{{end_time}}"
+            },
+            {
+              "key": "instance_organization_id",
+              "value": "{{org-id}}",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Service Instance Usage",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{default-org-api-key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://{{console-domain}}/apis/billing.envmgmt.io/v1/metrics/partner/instance/kind/service/usage?range_from={{start_time}}&range_to={{end_time}}",
+          "protocol": "https",
+          "host": [
+            "{{console-domain}}"
+          ],
+          "path": [
+            "apis",
+            "billing.envmgmt.io",
+            "v1",
+            "metrics",
+            "partner",
+            "instance",
+            "kind",
+            "service",
+            "usage"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "400",
+              "disabled": true
+            },
+            {
+              "key": "range_from",
+              "value": "{{start_time}}"
+            },
+            {
+              "key": "range_to",
+              "value": "{{end_time}}"
+            },
+            {
+              "key": "instance_organization_id",
+              "value": "{{org-id}}",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Compute Profile Usage",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{default-org-api-key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://{{console-domain}}/apis/billing.envmgmt.io/v1/metrics/partner/profile/kind/compute/usage?range_from={{start_time}}&range_to={{end_time}}&offset",
+          "protocol": "https",
+          "host": [
+            "{{console-domain}}"
+          ],
+          "path": [
+            "apis",
+            "billing.envmgmt.io",
+            "v1",
+            "metrics",
+            "partner",
+            "profile",
+            "kind",
+            "compute",
+            "usage"
+          ],
+          "query": [
+            {
+              "key": "range_from",
+              "value": "{{start_time}}"
+            },
+            {
+              "key": "range_to",
+              "value": "{{end_time}}"
+            },
+            {
+              "key": "limit",
+              "value": "100",
+              "disabled": true
+            },
+            {
+              "key": "offset",
+              "value": null
+            },
+            {
+              "key": "instance_organization_id",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Service Profile Usage",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{default-org-api-key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://{{console-domain}}/apis/billing.envmgmt.io/v1/metrics/partner/profile/kind/compute/usage?range_from={{start_time}}&range_to={{end_time}}&offset",
+          "protocol": "https",
+          "host": [
+            "{{console-domain}}"
+          ],
+          "path": [
+            "apis",
+            "billing.envmgmt.io",
+            "v1",
+            "metrics",
+            "partner",
+            "profile",
+            "kind",
+            "compute",
+            "usage"
+          ],
+          "query": [
+            {
+              "key": "range_from",
+              "value": "{{start_time}}"
+            },
+            {
+              "key": "range_to",
+              "value": "{{end_time}}"
+            },
+            {
+              "key": "limit",
+              "value": "100",
+              "disabled": true
+            },
+            {
+              "key": "offset",
+              "value": null
+            },
+            {
+              "key": "instance_organization_id",
+              "value": null,
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "start_time",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "end_time",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
