@@ -4,7 +4,11 @@
 **Collection Name:** Customer Management  
 **Description:** API endpoints for managing customer organizations in Rafay PaaS.
 
-**Base URL:** `{{ops-console-domain}}`
+### 📦 Postman Collection
+
+You can download and import the Postman collection directly:
+
+👉 [Download Customer Management Collection](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/main/Customer%20Management.postman_collection.json)
 
 ---
 
@@ -14,12 +18,13 @@ Most endpoints require authentication using the following headers:
 
 ```
 X-RAFAY-API-KEYID: {{ops-api-key}}
-Authorization: Bearer {{token}}
 ```
 
 ---
 
 ## Endpoints
+
+**Base URL:** `{{ops-console-domain}}`
 
 ### Create Customer
 **POST** `/auth/v1/signup/organization/`

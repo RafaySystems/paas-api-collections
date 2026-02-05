@@ -4,7 +4,11 @@
 **Collection Name:** SKU Management  
 **Description:** APIs for listing and retrieving system catalog compute and service SKU profiles.
 
-**Base URL:** `https://{{console-domain}}`
+### 📦 Postman Collection
+
+You can download and import the Postman collection directly:
+
+👉 [Download SKU Management Collection](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/SKU%20Management.postman_collection.json)
 
 ---
 
@@ -19,6 +23,8 @@ x-api-key: {{default-org-api-key}}
 ---
 
 ## Compute Profiles
+
+**Base URL:** `https://{{console-domain}}`
 
 ### List Compute Profiles
 **GET** `/apis/paas.envmgmt.io/v1/projects/system-catalog/computeprofiles`

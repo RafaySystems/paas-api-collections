@@ -4,7 +4,11 @@
 **Collection Name:** Usage Metrics  
 **Description:** APIs for querying usage and billing metrics for compute and service instances and profiles.
 
-**Base URL:** `https://{{console-domain}}`
+### 📦 Postman Collection
+
+You can download and import the Postman collection directly:
+
+👉 [Download Usage Metrics Collection](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/Usage%20Metrics.postman_collection.json)
 
 ---
 
@@ -19,6 +23,8 @@ x-api-key: {{default-org-api-key}}
 ---
 
 ## Instance Usage Metrics
+
+**Base URL:** `https://{{console-domain}}`
 
 ### Compute Instance Usage
 **GET** `/apis/billing.envmgmt.io/v1/metrics/partner/instance/kind/compute/usage`

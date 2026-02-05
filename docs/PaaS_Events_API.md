@@ -4,7 +4,11 @@
 **Collection Name:** PaaS Events  
 **Description:** APIs for querying PaaS-related events for compute and service instances.
 
-**Base URL:** `https://{{console-domain}}`
+### 📦 Postman Collection
+
+You can download and import the Postman collection directly:
+
+👉 [Download PaaS Events Collection](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/PaaS%20Events.postman_collection.json)
 
 ---
 
@@ -19,6 +23,8 @@ x-api-key: {{default-org-api-key}}
 ---
 
 ## Compute Instance Events
+
+**Base URL:** `https://{{console-domain}}`
 
 ### Get Compute Instance Events
 **GET** `/apis/dashboard.envmgmt.io/v1/events/paas/partner/kind/compute/instance`
