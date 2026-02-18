@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "0f8bc5c9-e1cd-41ad-8755-2586fe158765",
+    "_postman_id": "eaae7fe3-7df9-40b1-87c6-fc3f45531905",
     "name": "PaaS Events",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "19777892",
-    "_collection_link": "https://go.postman.co/collection/19777892-0f8bc5c9-e1cd-41ad-8755-2586fe158765?source=collection_link"
+    "_exporter_id": "52142476",
+    "_collection_link": "https://go.postman.co/collection/52142476-eaae7fe3-7df9-40b1-87c6-fc3f45531905?source=collection_link"
   },
   "item": [
     {
@@ -19,10 +19,13 @@
           }
         ],
         "url": {
-          "raw": "https://{{console-domain}}/apis/dashboard.envmgmt.io/v1/events/paas/partner/kind/compute/instance?range_from={{start_time}}&range_to={{end_time}}",
+          "raw": "https://amdocs.paas.rafay.dev/apis/dashboard.envmgmt.io/v1/events/paas/partner/kind/compute/instance?range_from={{start_time}}&range_to={{end_time}}&offset=0&limit=10",
           "protocol": "https",
           "host": [
-            "{{console-domain}}"
+            "amdocs",
+            "paas",
+            "rafay",
+            "dev"
           ],
           "path": [
             "apis",
@@ -37,11 +40,6 @@
           ],
           "query": [
             {
-              "key": "limit",
-              "value": "100",
-              "disabled": true
-            },
-            {
               "key": "range_from",
               "value": "{{start_time}}"
             },
@@ -50,31 +48,12 @@
               "value": "{{end_time}}"
             },
             {
-              "key": "status",
-              "value": "success",
-              "disabled": true
+              "key": "offset",
+              "value": "0"
             },
             {
-              "key": "orderby",
-              "value": "created_at",
-              "disabled": true
-            },
-            {
-              "key": "order",
-              "value": "desc",
-              "disabled": true
-            },
-            {
-              "key": "org_id",
-              "value": null,
-              "type": "text",
-              "disabled": true
-            },
-            {
-              "key": "profile_id",
-              "value": null,
-              "type": "text",
-              "disabled": true
+              "key": "limit",
+              "value": "10"
             }
           ]
         }
@@ -93,10 +72,13 @@
           }
         ],
         "url": {
-          "raw": "https://{{console-domain}}/apis/dashboard.envmgmt.io/v1/events/paas/partner/kind/compute/instance?range_from={{start_time}}&range_to={{end_time}}",
+          "raw": "https://amdocs.paas.rafay.dev/apis/dashboard.envmgmt.io/v1/events/paas/partner/kind/compute/instance?range_from={{start_time}}&range_to={{end_time}}&offset=0&limit=10",
           "protocol": "https",
           "host": [
-            "{{console-domain}}"
+            "amdocs",
+            "paas",
+            "rafay",
+            "dev"
           ],
           "path": [
             "apis",
@@ -111,11 +93,6 @@
           ],
           "query": [
             {
-              "key": "limit",
-              "value": "100",
-              "disabled": true
-            },
-            {
               "key": "range_from",
               "value": "{{start_time}}"
             },
@@ -124,36 +101,57 @@
               "value": "{{end_time}}"
             },
             {
-              "key": "status",
-              "value": "success",
-              "disabled": true
+              "key": "offset",
+              "value": "0"
             },
             {
-              "key": "orderby",
-              "value": "created_at",
-              "disabled": true
-            },
-            {
-              "key": "order",
-              "value": "desc",
-              "disabled": true
-            },
-            {
-              "key": "org_id",
-              "value": null,
-              "type": "text",
-              "disabled": true
-            },
-            {
-              "key": "profile_id",
-              "value": null,
-              "type": "text",
-              "disabled": true
+              "key": "limit",
+              "value": "10"
             }
           ]
         }
       },
       "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "var now = new Date();",
+          "//now.setUTCMinutes(0, 0, 0); // Set minutes and seconds to zero",
+          "",
+          "var previous = new Date(now);",
+          "previous.setUTCDate(now.getUTCDate() - 31); // Subtract 24 hours",
+          "",
+          "var formattedCurrentTime = now.toISOString(); // Current time in ISO format",
+          "var formattedPreviousTime = previous.toISOString(); // 24 hours before",
+          "",
+          "pm.variables.set(\"end_time\", encodeURIComponent(formattedCurrentTime));"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "start_time",
+      "value": "",
+      "type": "default"
     }
   ]
 }

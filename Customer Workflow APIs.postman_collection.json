@@ -1,0 +1,744 @@
+{
+  "info": {
+    "_postman_id": "fa1bcfac-98ab-47f9-8d63-f7c7996e8126",
+    "name": "Customer Workflow APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52142476",
+    "_collection_link": "https://go.postman.co/collection/52142476-fa1bcfac-98ab-47f9-8d63-f7c7996e8126?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Project Management",
+      "item": [
+        {
+          "name": "Create Project",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"{{project-name}}\",\"description\":\"\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{console-domain}}/auth/v1/projects/",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "auth",
+                "v1",
+                "projects",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List or Search Projects",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/auth/v1/projects/",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "auth",
+                "v1",
+                "projects",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "48",
+                  "disabled": true
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "disabled": true
+                },
+                {
+                  "key": "order",
+                  "value": "ASC",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": "name",
+                  "disabled": true
+                },
+                {
+                  "key": "q",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Project",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/auth/v1/projects/{{project-id}}/",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "auth",
+                "v1",
+                "projects",
+                "{{project-id}}",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "48",
+                  "disabled": true
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "disabled": true
+                },
+                {
+                  "key": "order",
+                  "value": "ASC",
+                  "disabled": true
+                },
+                {
+                  "key": "orderby",
+                  "value": "name",
+                  "disabled": true
+                },
+                {
+                  "key": "q",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Workspace",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"apiVersion\": \"paas.envmgmt.io/v1\",\n    \"kind\": \"Workspace\",\n    \"metadata\": {\n        \"name\": \"delete\",\n        \"project\": \"{{project-name}}\"\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/{{project-name}}/workspaces?fail-on-exists=true",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "{{project-name}}",
+                "workspaces"
+              ],
+              "query": [
+                {
+                  "key": "fail-on-exists",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Workspaces",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/{{project-name}}/workspaces?limit=3&offset=0&order=DESC&orderBy=createdAt",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "{{project-name}}",
+                "workspaces"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "3"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "order",
+                  "value": "DESC"
+                },
+                {
+                  "key": "orderBy",
+                  "value": "createdAt"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Workspace",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/{{project-name}}/workspaces/{{workspace-name}}",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "{{project-name}}",
+                "workspaces",
+                "{{workspace-name}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Instance Management",
+      "item": [
+        {
+          "name": "List Compute Profiles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/{{project-name}}/computeprofiles",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "{{project-name}}",
+                "computeprofiles"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "disabled": true
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Compute Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/{{project-name}}/computeprofiles/{{profile-name}}?systemCatalog=true",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "{{project-name}}",
+                "computeprofiles",
+                "{{profile-name}}"
+              ],
+              "query": [
+                {
+                  "key": "systemCatalog",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Instance",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"apiVersion\": \"paas.envmgmt.io/v1\",\n    \"kind\": \"ComputeInstance\",\n    \"metadata\": {\n        \"workspace\": \"default-ws\",\n        \"project\": \"development\",\n        \"labels\": {\n            \"External-ID\": \"6c9da2c6-adb1-4a1b-90b3-2fde7d5632aa\"\n        },\n        \"name\": \"dev-vm-2\"\n    },\n    \"spec\": {\n        \"computeProfile\": {\n            \"name\": \"small-gpu-vm\",\n            \"systemCatalog\": true\n        },\n        \"variables\": [\n            {\n                \"name\": \"cpu\",\n                \"valueType\": \"text\",\n                \"value\": \"24\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"CPU\",\n                        \"disableForDay2Operation\": false,\n                        \"disabled\": true,\n                        \"section\": \"VM Specification\",\n                        \"weight\": \"3\"\n                    }\n                }\n            },\n            {\n                \"name\": \"disk\",\n                \"valueType\": \"text\",\n                \"value\": \"150\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"Disk\",\n                        \"incrementDecrementLabel\": \"Disk Size (GB)\",\n                        \"incrementDecrementMax\": \"2000\",\n                        \"incrementDecrementMin\": \"100\",\n                        \"incrementDecrementStep\": \"50\",\n                        \"section\": \"VM Specification\",\n                        \"type\": \"incrementDecrement\",\n                        \"weight\": \"5\"\n                    }\n                }\n            },\n            {\n                \"name\": \"gpu\",\n                \"valueType\": \"text\",\n                \"value\": \"1\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"GPU\",\n                        \"disableForDay2Operation\": false,\n                        \"disabled\": true,\n                        \"radioOptions\": [\n                            {\n                                \"description\": \"\",\n                                \"label\": \"1\",\n                                \"value\": \"1\"\n                            }\n                        ],\n                        \"section\": \"VM Specification\",\n                        \"type\": \"text\",\n                        \"weight\": \"2\"\n                    }\n                }\n            },\n            {\n                \"name\": \"gpu-model\",\n                \"valueType\": \"text\",\n                \"value\": \"H100\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"GPU Type\",\n                        \"disableForDay2Operation\": false,\n                        \"disabled\": true,\n                        \"dropdownValues\": [\n                            {\n                                \"label\": \"H100\",\n                                \"text\": \"\",\n                                \"value\": \"H100\"\n                            }\n                        ],\n                        \"radioOptions\": [\n                            {\n                                \"description\": \"\",\n                                \"label\": \"H100\",\n                                \"value\": \"H100\"\n                            }\n                        ],\n                        \"section\": \"VM Specification\",\n                        \"type\": \"radio\",\n                        \"weight\": \"1\"\n                    }\n                }\n            },\n            {\n                \"name\": \"memory\",\n                \"valueType\": \"text\",\n                \"value\": \"256\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"Memory\",\n                        \"disableForDay2Operation\": false,\n                        \"disabled\": true,\n                        \"section\": \"VM Specification\",\n                        \"weight\": \"4\"\n                    }\n                }\n            },\n            {\n                \"name\": \"password\",\n                \"valueType\": \"text\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"VM Password\",\n                        \"extraDescription\": \"VM Username: ubuntu\",\n                        \"section\": \"VM Access\",\n                        \"type\": \"text\",\n                        \"weight\": \"6\"\n                    }\n                },\n                \"value\": \"changeplz\"\n            },\n            {\n                \"name\": \"ssh-key\",\n                \"valueType\": \"text\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"SSH Public Key\",\n                        \"section\": \"VM Access\",\n                        \"weight\": \"6\"\n                    }\n                },\n                \"value\": \"\"\n            },\n            {\n                \"name\": \"video-memory\",\n                \"valueType\": \"text\",\n                \"value\": \"80\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"GPU Memory\",\n                        \"disableForDay2Operation\": false,\n                        \"disabled\": true,\n                        \"section\": \"VM Specification\",\n                        \"weight\": \"2.5\"\n                    }\n                }\n            }\n        ],\n        \"computeType\": \"vm\",\n        \"datacenter\": {},\n        \"storageDetails\": {}\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/{{project-name}}/workspaces/{{workspace-name}}/computeinstances?fail-on-exists=true&auto-publish=true",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "{{project-name}}",
+                "workspaces",
+                "{{workspace-name}}",
+                "computeinstances"
+              ],
+              "query": [
+                {
+                  "key": "fail-on-exists",
+                  "value": "true"
+                },
+                {
+                  "key": "auto-publish",
+                  "value": "true"
+                }
+              ]
+            },
+            "description": "# Create Compute Instance\n\n## Overview\n\nThis endpoint creates a new compute instance (virtual machine) within a specified workspace and project. The API provisions a VM with customizable specifications including CPU, GPU, memory, and storage configurations based on a compute profile template.\n\n## Endpoint Details\n\n- **Method**: POST\n    \n- **Path**: `/apis/paas.envmgmt.io/v1/projects/{project-name}/workspaces/{workspace-name}/computeinstances`\n    \n\n## Query Parameters\n\n### `fail-on-exists`\n\n- **Type**: Boolean\n    \n- **Default**: `true`\n    \n- **Description**: Controls the behavior when a compute instance with the same name already exists:\n    \n    - `true`: The API will fail and return an error if an instance with the specified name already exists\n        \n    - `false`: The API will allow duplicate names or handle existing instances gracefully\n        \n\n## Request Body Structure\n\n### 1\\. Metadata Section\n\nDefines the organizational and identification details for the compute instance:\n\n- **`workspace`**: The workspace where the instance will be created (e.g., `default-ws`)\n    \n- **`project`**: The project context for the instance (e.g., `development`)\n    \n- **`name`**: Unique identifier for the compute instance (e.g., `dev-vm-1`)\n    \n- **`labels`**: Same as profile.metadata.labels\n    \n\n### 2\\. Spec Section\n\nContains the technical specifications and configuration for the compute instance:\n\n#### **Compute Profile**\n\n- **`name`**: Reference to a predefined compute profile template (e.g., `small-gpu-vm`)\n    \n- **`systemCatalog`**: Boolean indicating if the profile is from the system catalog (`true`) or custom\n    \n\n#### **Compute Type**\n\n- **`computeType`**: Type of compute resource, set to `vm` for virtual machines\n    \n\n#### **Variables Array (Copied from** Profile.spec.variables**)**\n\nDefines the configurable parameters for the VM. This section is copied from profile.spec.variables and updated with any overrides from user. Each variable includes:\n\n- `name`: Variable identifier\n    \n- `valueType`: Data type (typically `text`)\n    \n- `value`: The configured value\n    \n- `options`: Metadata for UI display and validation\n    \n\n### 3\\. VM Specifications (Variables)\n\n#### **CPU Configuration**\n\n- **Variable**: `cpu`\n    \n- **Value**: Number of CPU cores (e.g., `24`)\n    \n- **Override**: Allowed\n    \n- **Day 2 Operations**: Disabled (cannot be modified after creation)\n    \n\n#### **GPU Configuration**\n\n- **Variable**: `gpu`\n    \n- **Value**: Number of GPU units (e.g., `1`)\n    \n- **Override**: Allowed\n    \n- **Day 2 Operations**: Disabled\n    \n- **Variable**: `gpu-model`\n    \n- **Value**: GPU model type (e.g., `H100`)\n    \n- **Options**: Dropdown/radio selection from available GPU types\n    \n- **Day 2 Operations**: Disabled\n    \n- **Variable**: `video-memory`\n    \n- **Value**: GPU memory in GB (e.g., `80`)\n    \n- **Day 2 Operations**: Disabled\n    \n\n#### **Memory Configuration**\n\n- **Variable**: `memory`\n    \n- **Value**: RAM in GB (e.g., `256`)\n    \n- **Override**: Allowed\n    \n- **Day 2 Operations**: Disabled\n    \n\n#### **Disk Configuration**\n\n- **Variable**: `disk`\n    \n- **Value**: Disk size in GB (e.g., `150`)\n    \n- **Override**: Allowed\n    \n- **UI Control**: Increment/decrement slider\n    \n    - Min: 100 GB\n        \n    - Max: 2000 GB\n        \n    - Step: 50 GB\n        \n\n### 4\\. VM Access Credentials\n\n#### **Password Authentication**\n\n- **Variable**: `password`\n    \n- **Description**: Password for VM access\n    \n- **Default Username**: `ubuntu`\n    \n- **Example**: `changeplz` (should be changed to a secure password)\n    \n- **Override**: Allowed\n    \n\n#### **SSH Key Authentication**\n\n- **Variable**: `ssh-key`\n    \n- **Description**: SSH public key for secure key-based authentication\n    \n- **Value**: Paste your SSH public key content\n    \n- **Override**: Allowed\n    \n- **Note**: Recommended for production environments\n    \n\n## Example Use Case\n\nThis request creates a development VM (`dev-vm-1`) with:\n\n- 24 CPU cores\n    \n- 1x NVIDIA H100 GPU with 80GB memory\n    \n- 256 GB RAM\n    \n- 150 GB disk storage\n    \n- Ubuntu OS with password and/or SSH key access\n    \n\n## Best Practices\n\n1. **Security**: Always use strong passwords and prefer SSH key authentication for production VMs\n    \n2. **Naming**: Use descriptive names that indicate the environment and purpose (e.g., `dev-vm-1`, `prod-ml-gpu-01`)\n    \n3. **External IDs**: Maintain consistent External-ID labels for tracking across systems\n    \n4. **Resource Sizing**: Choose appropriate compute profiles and adjust variables based on workload requirements"
+          },
+          "response": []
+        },
+        {
+          "name": "List Instances",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"apiVersion\": \"paas.envmgmt.io/v1\",\n    \"kind\": \"ComputeInstance\",\n    \"metadata\": {\n        \"workspace\": \"default-ws\",\n        \"project\": \"development\",\n        \"labels\": {\n            \"External-ID\": \"6c9da2c6-adb1-4a1b-90b3-2fde7d5632aa\"\n        },\n        \"name\": \"dev-vm-1\"\n    },\n    \"spec\": {\n        \"computeProfile\": {\n            \"name\": \"small-gpu-vm\",\n            \"systemCatalog\": true\n        },\n        \"variables\": [\n            {\n                \"name\": \"cpu\",\n                \"valueType\": \"text\",\n                \"value\": \"24\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"CPU\",\n                        \"disableForDay2Operation\": false,\n                        \"disabled\": true,\n                        \"section\": \"VM Specification\",\n                        \"weight\": \"3\"\n                    }\n                }\n            },\n            {\n                \"name\": \"disk\",\n                \"valueType\": \"text\",\n                \"value\": \"150\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"Disk\",\n                        \"incrementDecrementLabel\": \"Disk Size (GB)\",\n                        \"incrementDecrementMax\": \"2000\",\n                        \"incrementDecrementMin\": \"100\",\n                        \"incrementDecrementStep\": \"50\",\n                        \"section\": \"VM Specification\",\n                        \"type\": \"incrementDecrement\",\n                        \"weight\": \"5\"\n                    }\n                }\n            },\n            {\n                \"name\": \"gpu\",\n                \"valueType\": \"text\",\n                \"value\": \"1\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"GPU\",\n                        \"disableForDay2Operation\": false,\n                        \"disabled\": true,\n                        \"radioOptions\": [\n                            {\n                                \"description\": \"\",\n                                \"label\": \"1\",\n                                \"value\": \"1\"\n                            }\n                        ],\n                        \"section\": \"VM Specification\",\n                        \"type\": \"text\",\n                        \"weight\": \"2\"\n                    }\n                }\n            },\n            {\n                \"name\": \"gpu-model\",\n                \"valueType\": \"text\",\n                \"value\": \"H100\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"GPU Type\",\n                        \"disableForDay2Operation\": false,\n                        \"disabled\": true,\n                        \"dropdownValues\": [\n                            {\n                                \"label\": \"H100\",\n                                \"text\": \"\",\n                                \"value\": \"H100\"\n                            }\n                        ],\n                        \"radioOptions\": [\n                            {\n                                \"description\": \"\",\n                                \"label\": \"H100\",\n                                \"value\": \"H100\"\n                            }\n                        ],\n                        \"section\": \"VM Specification\",\n                        \"type\": \"radio\",\n                        \"weight\": \"1\"\n                    }\n                }\n            },\n            {\n                \"name\": \"memory\",\n                \"valueType\": \"text\",\n                \"value\": \"256\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"Memory\",\n                        \"disableForDay2Operation\": false,\n                        \"disabled\": true,\n                        \"section\": \"VM Specification\",\n                        \"weight\": \"4\"\n                    }\n                }\n            },\n            {\n                \"name\": \"password\",\n                \"valueType\": \"text\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"VM Password\",\n                        \"extraDescription\": \"VM Username: ubuntu\",\n                        \"section\": \"VM Access\",\n                        \"type\": \"text\",\n                        \"weight\": \"6\"\n                    }\n                },\n                \"value\": \"changeplz\"\n            },\n            {\n                \"name\": \"ssh-key\",\n                \"valueType\": \"text\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"SSH Public Key\",\n                        \"section\": \"VM Access\",\n                        \"weight\": \"6\"\n                    }\n                },\n                \"value\": \"\"\n            },\n            {\n                \"name\": \"video-memory\",\n                \"valueType\": \"text\",\n                \"value\": \"80\",\n                \"options\": {\n                    \"override\": {\n                        \"type\": \"allowed\"\n                    },\n                    \"displayMetadata\": {\n                        \"alias\": \"GPU Memory\",\n                        \"disableForDay2Operation\": false,\n                        \"disabled\": true,\n                        \"section\": \"VM Specification\",\n                        \"weight\": \"2.5\"\n                    }\n                }\n            }\n        ],\n        \"computeType\": \"vm\",\n        \"datacenter\": {},\n        \"storageDetails\": {}\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/{{project-name}}/workspaces/{{workspace-name}}/computeinstances",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "{{project-name}}",
+                "workspaces",
+                "{{workspace-name}}",
+                "computeinstances"
+              ]
+            },
+            "description": "# Create Compute Instance\n\n## Overview\n\nThis endpoint creates a new compute instance (virtual machine) within a specified workspace and project. The API provisions a VM with customizable specifications including CPU, GPU, memory, and storage configurations based on a compute profile template.\n\n## Endpoint Details\n\n- **Method**: POST\n    \n- **Path**: `/apis/paas.envmgmt.io/v1/projects/{project-name}/workspaces/{workspace-name}/computeinstances`\n    \n\n## Query Parameters\n\n### `fail-on-exists`\n\n- **Type**: Boolean\n    \n- **Default**: `true`\n    \n- **Description**: Controls the behavior when a compute instance with the same name already exists:\n    \n    - `true`: The API will fail and return an error if an instance with the specified name already exists\n        \n    - `false`: The API will allow duplicate names or handle existing instances gracefully\n        \n\n## Request Body Structure\n\n### 1\\. Metadata Section\n\nDefines the organizational and identification details for the compute instance:\n\n- **`workspace`**: The workspace where the instance will be created (e.g., `default-ws`)\n    \n- **`project`**: The project context for the instance (e.g., `development`)\n    \n- **`name`**: Unique identifier for the compute instance (e.g., `dev-vm-1`)\n    \n- **`labels`**: Same as profile.metadata.labels\n    \n\n### 2\\. Spec Section\n\nContains the technical specifications and configuration for the compute instance:\n\n#### **Compute Profile**\n\n- **`name`**: Reference to a predefined compute profile template (e.g., `small-gpu-vm`)\n    \n- **`systemCatalog`**: Boolean indicating if the profile is from the system catalog (`true`) or custom\n    \n\n#### **Compute Type**\n\n- **`computeType`**: Type of compute resource, set to `vm` for virtual machines\n    \n\n#### **Variables Array (Copied from** Profile.spec.variables**)**\n\nDefines the configurable parameters for the VM. This section is copied from profile.spec.variables and updated with any overrides from user. Each variable includes:\n\n- `name`: Variable identifier\n    \n- `valueType`: Data type (typically `text`)\n    \n- `value`: The configured value\n    \n- `options`: Metadata for UI display and validation\n    \n\n### 3\\. VM Specifications (Variables)\n\n#### **CPU Configuration**\n\n- **Variable**: `cpu`\n    \n- **Value**: Number of CPU cores (e.g., `24`)\n    \n- **Override**: Allowed\n    \n- **Day 2 Operations**: Disabled (cannot be modified after creation)\n    \n\n#### **GPU Configuration**\n\n- **Variable**: `gpu`\n    \n- **Value**: Number of GPU units (e.g., `1`)\n    \n- **Override**: Allowed\n    \n- **Day 2 Operations**: Disabled\n    \n- **Variable**: `gpu-model`\n    \n- **Value**: GPU model type (e.g., `H100`)\n    \n- **Options**: Dropdown/radio selection from available GPU types\n    \n- **Day 2 Operations**: Disabled\n    \n- **Variable**: `video-memory`\n    \n- **Value**: GPU memory in GB (e.g., `80`)\n    \n- **Day 2 Operations**: Disabled\n    \n\n#### **Memory Configuration**\n\n- **Variable**: `memory`\n    \n- **Value**: RAM in GB (e.g., `256`)\n    \n- **Override**: Allowed\n    \n- **Day 2 Operations**: Disabled\n    \n\n#### **Disk Configuration**\n\n- **Variable**: `disk`\n    \n- **Value**: Disk size in GB (e.g., `150`)\n    \n- **Override**: Allowed\n    \n- **UI Control**: Increment/decrement slider\n    \n    - Min: 100 GB\n        \n    - Max: 2000 GB\n        \n    - Step: 50 GB\n        \n\n### 4\\. VM Access Credentials\n\n#### **Password Authentication**\n\n- **Variable**: `password`\n    \n- **Description**: Password for VM access\n    \n- **Default Username**: `ubuntu`\n    \n- **Example**: `changeplz` (should be changed to a secure password)\n    \n- **Override**: Allowed\n    \n\n#### **SSH Key Authentication**\n\n- **Variable**: `ssh-key`\n    \n- **Description**: SSH public key for secure key-based authentication\n    \n- **Value**: Paste your SSH public key content\n    \n- **Override**: Allowed\n    \n- **Note**: Recommended for production environments\n    \n\n## Example Use Case\n\nThis request creates a development VM (`dev-vm-1`) with:\n\n- 24 CPU cores\n    \n- 1x NVIDIA H100 GPU with 80GB memory\n    \n- 256 GB RAM\n    \n- 150 GB disk storage\n    \n- Ubuntu OS with password and/or SSH key access\n    \n\n## Best Practices\n\n1. **Security**: Always use strong passwords and prefer SSH key authentication for production VMs\n    \n2. **Naming**: Use descriptive names that indicate the environment and purpose (e.g., `dev-vm-1`, `prod-ml-gpu-01`)\n    \n3. **External IDs**: Maintain consistent External-ID labels for tracking across systems\n    \n4. **Resource Sizing**: Choose appropriate compute profiles and adjust variables based on workload requirements"
+          },
+          "response": []
+        },
+        {
+          "name": "List Service Profiles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/{{project-name}}/serviceprofiles",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "{{project-name}}",
+                "serviceprofiles"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "disabled": true
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Service Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/{{project-name}}/serviceprofiles/{{profile-name}}?systemCatalog=true",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "{{project-name}}",
+                "serviceprofiles",
+                "{{profile-name}}"
+              ],
+              "query": [
+                {
+                  "key": "systemCatalog",
+                  "value": "true"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User Management",
+      "item": [
+        {
+          "name": "Get Users and Roles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}/accountroles/",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "auth",
+                "v1",
+                "organizations",
+                "{{org-id}}",
+                "accountroles",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"account\": {\n        \"username\": \"tempuser3@yopmail.com\",\n        \"first_name\": \"temp\",\n        \"last_name\": \"user3\",\n        \"phone\": \"\"\n    },\n    \"role\": {\n        \"id\": \"7w2lnkp\",\n        \"name\": \"ADMIN\",\n        \"is_global\": true,\n        \"scope\": \"ORGANIZATION\"\n    },\n    \"roles\": [\n        {\n            \"role\": {\n                \"id\": \"7w2lnkp\",\n                \"name\": \"ADMIN\",\n                \"is_global\": true,\n                \"scope\": \"ORGANIZATION\"\n            }\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}/adduser/",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "auth",
+                "v1",
+                "organizations",
+                "{{org-id}}",
+                "adduser",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create API Key",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              },
+              {
+                "key": "X-ORGANIZATION-ID",
+                "value": "{{org-id}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"dynamic\",\n    \"never_expire\": true,\n    \"validity_hour\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{console-domain}}/auth/v1/users/{{user-id}}/apikey/",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "auth",
+                "v1",
+                "users",
+                "{{user-id}}",
+                "apikey",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "profile-name",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

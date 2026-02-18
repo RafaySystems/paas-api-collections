@@ -1,10 +1,10 @@
 {
   "info": {
-    "_postman_id": "7a73e19d-f524-4913-a569-3d6dc66a0bad",
+    "_postman_id": "7cb1ff54-e6c9-4bf5-9ab2-951ba396ecaa",
     "name": "Customer Management",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "19777892",
-    "_collection_link": "https://go.postman.co/collection/19777892-7a73e19d-f524-4913-a569-3d6dc66a0bad?source=collection_link"
+    "_exporter_id": "52142476",
+    "_collection_link": "https://go.postman.co/collection/52142476-7cb1ff54-e6c9-4bf5-9ab2-951ba396ecaa?source=collection_link"
   },
   "item": [
     {
@@ -23,11 +23,20 @@
         }
       ],
       "request": {
+        "auth": {
+          "type": "noauth"
+        },
         "method": "POST",
-        "header": [],
+        "header": [
+          {
+            "key": "X-RAFAY-API-KEYID",
+            "value": "{{ops-console-api-key}}",
+            "type": "text"
+          }
+        ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"username\": \"fname.lname@example.com\",\n    \"organization_name\": \"Example Ltd\",\n    \"first_name\": \"fname\",\n    \"last_name\": \"lname\",\n    \"password\": \"notapassword\"\n}",
+          "raw": "{\n    \"username\": \"raghavendra@rafay.co\",\n    \"organization_name\": \"Delete Org\",\n    \"first_name\": \"fname\",\n    \"last_name\": \"lname\",\n    \"password\": \"notapassword\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -50,13 +59,66 @@
         },
         "description": "Gets information about the authenticated user."
       },
-      "response": []
+      "response": [
+        {
+          "name": "Create Customer",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"raghavendra@rafay.co\",\n    \"organization_name\": \"Goodlife\",\n    \"first_name\": \"Raghavendra\",\n    \"last_name\": \"C\",\n    \"password\": \"notapassword\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{ops-console-domain}}/auth/v1/signup/organization/",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "auth",
+                "v1",
+                "signup",
+                "organization",
+                ""
+              ]
+            }
+          },
+          "_postman_previewlanguage": "",
+          "header": [],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": ""
+        }
+      ]
     },
     {
       "name": "Search Customers List",
       "request": {
         "method": "GET",
-        "header": [],
+        "header": [
+          {
+            "key": "X-RAFAY-API-KEYID",
+            "value": "{{ops-console-api-key}}",
+            "type": "text"
+          }
+        ],
         "url": {
           "raw": "https://{{ops-console-domain}}/auth/v1/organizations",
           "protocol": "https",
@@ -102,9 +164,15 @@
       "name": "Get Customer",
       "request": {
         "method": "GET",
-        "header": [],
+        "header": [
+          {
+            "key": "X-RAFAY-API-KEYID",
+            "value": "{{ops-console-api-key}}",
+            "type": "text"
+          }
+        ],
         "url": {
-          "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}",
+          "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}/",
           "protocol": "https",
           "host": [
             "{{ops-console-domain}}"
@@ -113,7 +181,8 @@
             "auth",
             "v1",
             "organizations",
-            "{{org-id}}"
+            "{{org-id}}",
+            ""
           ]
         }
       },
@@ -126,7 +195,7 @@
         "header": [
           {
             "key": "X-RAFAY-API-KEYID",
-            "value": "{{ops-api-key}}",
+            "value": "{{ops-console-api-key}}",
             "type": "text"
           }
         ],
@@ -140,7 +209,7 @@
           }
         },
         "url": {
-          "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}",
+          "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}/",
           "protocol": "https",
           "host": [
             "{{ops-console-domain}}"
@@ -149,7 +218,143 @@
             "auth",
             "v1",
             "organizations",
-            "{{org-id}}"
+            "{{org-id}}",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Update Customer",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"lk5xnd2\",\n    \"name\": \"Goodlife\",\n    \"description\": \"\",\n    \"settings\": {\n        \"currency\": \"USD\",\n        \"abac_enabled\": false,\n        \"ipv6_enabled\": false,\n        \"registry_fqdn\": \"\",\n        \"paas_compute_disabled\": false,\n        \"paas_service_disabled\": false,\n        \"whitelistedIP_enabled\": false,\n        \"paas_compute_disable_message\": \"\",\n        \"paas_service_disable_message\": \"\",\n        \"share_skus_with_all_projects_disabled\": false\n    },\n    \"billing_address\": \"\",\n    \"created_at\": \"2026-02-11T13:38:00.868365Z\",\n    \"modified_at\": \"2026-02-11T13:45:06.533442Z\",\n    \"active\": true,\n    \"approved\": true,\n    \"type\": \"free\",\n    \"address_line1\": \"1234\",\n    \"address_line2\": \"\",\n    \"city\": \"\",\n    \"state\": \"\",\n    \"country\": \"\",\n    \"partner_id\": \"d27v024\",\n    \"phone\": \"\",\n    \"zipcode\": \"\",\n    \"is_private\": true,\n    \"is_totp_enabled\": false,\n    \"published_workload_count\": 0,\n    \"psps_enabled\": true,\n    \"custom_psps_enabled\": true,\n    \"partner\": {\n        \"id\": \"d27v024\",\n        \"name\": \"Amdocs\",\n        \"description\": \"Partner\",\n        \"settings\": {\n            \"copyright\": \"Amdocs\",\n            \"idp_setting\": {\n                \"common_idp_for_all_orgs\": false\n            },\n            \"applications\": [],\n            \"gslb_enabled\": true,\n            \"sender_email\": \"noreply-rcloud@rafay.co\",\n            \"visible_roles\": [\n                \"ADMIN\",\n                \"ADMINISTRATOR_READ_ONLY\",\n                \"PROJECT_ADMIN\",\n                \"PROJECT_READ_ONLY\",\n                \"INFRA_ADMIN\",\n                \"INFRA_READ_ONLY\",\n                \"NAMESPACE_ADMIN\",\n                \"NAMESPACE_READ_ONLY\",\n                \"CLUSTER_ADMIN\",\n                \"CLUSTER_TEMPLATE_USER\",\n                \"WORKSPACE_ADMIN\",\n                \"WORKSPACE_READ_ONLY\",\n                \"FINOPS_ADMIN\",\n                \"ENVIRONMENT_ADMIN\",\n                \"AUDITOR_ADMIN\",\n                \"ENVIRONMENT_TEMPLATE_USER\",\n                \"PAAS_PROJECT_ADMIN\",\n                \"PAAS_WORKSPACE_ADMIN\",\n                \"PAAS_WORKSPACE_COLLABORATOR\",\n                \"DEVELOPER\",\n                \"RESEARCHER\",\n                \"DATA_ENGINEER\",\n                \"DATA_SCIENTIST\",\n                \"MLOPS_ENGINEER\",\n                \"GENAI_DEVELOPER\",\n                \"PLATFORM_ADMIN\"\n            ],\n            \"login_page_cta\": \"Login\",\n            \"logo_link_dark\": \"https://upload.wikimedia.org/wikipedia/commons/b/bd/Amdocs-2017-brand-mark.svg\",\n            \"signup_enabled\": true,\n            \"support_portal\": {\n                \"url\": \"\",\n                \"label\": \"Support Portal\",\n                \"enabled\": false\n            },\n            \"applications_view\": \"grid\",\n            \"organization_type\": \"enterprise\",\n            \"page_layout_style\": \"default\",\n            \"group_applications\": false,\n            \"login_page_sso_cta\": \"Login With SSO\",\n            \"privacy_policy_url\": \"https://rafay.co/privacy-policy\",\n            \"ORGANIZATION_APPROVAL\": false,\n            \"login_page_signup_cta\": \"Sign Up\",\n            \"hide_controller_version\": false,\n            \"ACCOUNT_CREATION_STRATEGY\": \"VERIFY\",\n            \"login_page_signup_cta_link\": \"/signup\"\n        },\n        \"created_at\": \"2026-01-08T05:37:10.719046Z\",\n        \"modified_at\": \"2026-01-08T05:39:32.658822Z\",\n        \"host\": \"amdocs.paas.rafay.dev\",\n        \"domain\": \"Team Rafay\",\n        \"tos_link\": \"\",\n        \"logo_link\": \"https://upload.wikimedia.org/wikipedia/commons/b/bd/Amdocs-2017-brand-mark.svg\",\n        \"notification_email\": \"customer-ops@rafay.co\",\n        \"support_team_name\": \"Amdocs\",\n        \"partner_helpdesk_email\": \"customer-ops@rafay.co\",\n        \"partner_product_name\": \"Amdocs\",\n        \"ops_host\": \"ops-amdocs.paas.rafay.dev\",\n        \"fav_icon_link\": \"https://www.amdocs.com/sites/default/files/Favicon-dark_0.png\",\n        \"is_totp_enabled\": false,\n        \"is_synthetic_partner_enabled\": false\n    },\n    \"default_blueprints_enabled\": true,\n    \"referer\": null,\n    \"enable_drift_webhook\": true,\n    \"protected_resources\": {\n        \"Cluster\": true,\n        \"Environment\": true\n    },\n    \"is_default_org\": false,\n    \"external_id\": \"1234\",\n    \"system_templates_enabled\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}/",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "auth",
+                "v1",
+                "organizations",
+                "{{org-id}}",
+                ""
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"id\": \"lk5xnd2\",\n    \"name\": \"Goodlife\",\n    \"description\": \"\",\n    \"settings\": {\n        \"currency\": \"USD\",\n        \"abac_enabled\": false,\n        \"ipv6_enabled\": false,\n        \"registry_fqdn\": \"\",\n        \"paas_compute_disabled\": false,\n        \"paas_service_disabled\": false,\n        \"whitelistedIP_enabled\": false,\n        \"paas_compute_disable_message\": \"\",\n        \"paas_service_disable_message\": \"\",\n        \"share_skus_with_all_projects_disabled\": false\n    },\n    \"billing_address\": \"\",\n    \"created_at\": \"2026-02-11T13:38:00.868365Z\",\n    \"modified_at\": \"2026-02-11T13:45:06.533442Z\",\n    \"active\": true,\n    \"approved\": true,\n    \"type\": \"free\",\n    \"address_line1\": \"123\",\n    \"address_line2\": \"\",\n    \"city\": \"\",\n    \"state\": \"\",\n    \"country\": \"\",\n    \"partner_id\": \"d27v024\",\n    \"phone\": \"\",\n    \"zipcode\": \"\",\n    \"is_private\": true,\n    \"is_totp_enabled\": false,\n    \"published_workload_count\": 0,\n    \"psps_enabled\": true,\n    \"custom_psps_enabled\": true,\n    \"partner\": {\n        \"id\": \"d27v024\",\n        \"name\": \"Amdocs\",\n        \"description\": \"Partner\",\n        \"settings\": {\n            \"copyright\": \"Amdocs\",\n            \"idp_setting\": {\n                \"common_idp_for_all_orgs\": false\n            },\n            \"applications\": [],\n            \"gslb_enabled\": true,\n            \"sender_email\": \"noreply-rcloud@rafay.co\",\n            \"visible_roles\": [\n                \"ADMIN\",\n                \"ADMINISTRATOR_READ_ONLY\",\n                \"PROJECT_ADMIN\",\n                \"PROJECT_READ_ONLY\",\n                \"INFRA_ADMIN\",\n                \"INFRA_READ_ONLY\",\n                \"NAMESPACE_ADMIN\",\n                \"NAMESPACE_READ_ONLY\",\n                \"CLUSTER_ADMIN\",\n                \"CLUSTER_TEMPLATE_USER\",\n                \"WORKSPACE_ADMIN\",\n                \"WORKSPACE_READ_ONLY\",\n                \"FINOPS_ADMIN\",\n                \"ENVIRONMENT_ADMIN\",\n                \"AUDITOR_ADMIN\",\n                \"ENVIRONMENT_TEMPLATE_USER\",\n                \"PAAS_PROJECT_ADMIN\",\n                \"PAAS_WORKSPACE_ADMIN\",\n                \"PAAS_WORKSPACE_COLLABORATOR\",\n                \"DEVELOPER\",\n                \"RESEARCHER\",\n                \"DATA_ENGINEER\",\n                \"DATA_SCIENTIST\",\n                \"MLOPS_ENGINEER\",\n                \"GENAI_DEVELOPER\",\n                \"PLATFORM_ADMIN\"\n            ],\n            \"login_page_cta\": \"Login\",\n            \"logo_link_dark\": \"https://upload.wikimedia.org/wikipedia/commons/b/bd/Amdocs-2017-brand-mark.svg\",\n            \"signup_enabled\": true,\n            \"support_portal\": {\n                \"url\": \"\",\n                \"label\": \"Support Portal\",\n                \"enabled\": false\n            },\n            \"applications_view\": \"grid\",\n            \"organization_type\": \"enterprise\",\n            \"page_layout_style\": \"default\",\n            \"group_applications\": false,\n            \"login_page_sso_cta\": \"Login With SSO\",\n            \"privacy_policy_url\": \"https://rafay.co/privacy-policy\",\n            \"ORGANIZATION_APPROVAL\": false,\n            \"login_page_signup_cta\": \"Sign Up\",\n            \"hide_controller_version\": false,\n            \"ACCOUNT_CREATION_STRATEGY\": \"VERIFY\",\n            \"login_page_signup_cta_link\": \"/signup\"\n        },\n        \"created_at\": \"2026-01-08T05:37:10.719046Z\",\n        \"modified_at\": \"2026-01-08T05:39:32.658822Z\",\n        \"host\": \"amdocs.paas.rafay.dev\",\n        \"domain\": \"Team Rafay\",\n        \"tos_link\": \"\",\n        \"logo_link\": \"https://upload.wikimedia.org/wikipedia/commons/b/bd/Amdocs-2017-brand-mark.svg\",\n        \"notification_email\": \"customer-ops@rafay.co\",\n        \"support_team_name\": \"Amdocs\",\n        \"partner_helpdesk_email\": \"customer-ops@rafay.co\",\n        \"partner_product_name\": \"Amdocs\",\n        \"ops_host\": \"ops-amdocs.paas.rafay.dev\",\n        \"fav_icon_link\": \"https://www.amdocs.com/sites/default/files/Favicon-dark_0.png\",\n        \"is_totp_enabled\": false,\n        \"is_synthetic_partner_enabled\": false\n    },\n    \"default_blueprints_enabled\": true,\n    \"referer\": null,\n    \"enable_drift_webhook\": true,\n    \"protected_resources\": {\n        \"Cluster\": true,\n        \"Environment\": true\n    },\n    \"is_default_org\": false,\n    \"external_id\": \"1234\",\n    \"system_templates_enabled\": true\n}"
+        },
+        {
+          "name": "Deactivate Organization",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"lk5xnd2\",\n    \"name\": \"Goodlife\",\n    \"description\": \"\",\n    \"settings\": {\n        \"currency\": \"USD\",\n        \"abac_enabled\": false,\n        \"ipv6_enabled\": false,\n        \"registry_fqdn\": \"\",\n        \"paas_compute_disabled\": false,\n        \"paas_service_disabled\": false,\n        \"whitelistedIP_enabled\": false,\n        \"paas_compute_disable_message\": \"\",\n        \"paas_service_disable_message\": \"\",\n        \"share_skus_with_all_projects_disabled\": false\n    },\n    \"billing_address\": \"\",\n    \"created_at\": \"2026-02-11T13:38:00.868365Z\",\n    \"modified_at\": \"2026-02-11T13:45:06.533442Z\",\n    \"active\": false,\n    \"approved\": true,\n    \"type\": \"free\",\n    \"address_line1\": \"1234\",\n    \"address_line2\": \"\",\n    \"city\": \"\",\n    \"state\": \"\",\n    \"country\": \"\",\n    \"partner_id\": \"d27v024\",\n    \"phone\": \"\",\n    \"zipcode\": \"\",\n    \"is_private\": true,\n    \"is_totp_enabled\": false,\n    \"published_workload_count\": 0,\n    \"psps_enabled\": true,\n    \"custom_psps_enabled\": true,\n    \"partner\": {\n        \"id\": \"d27v024\",\n        \"name\": \"Amdocs\",\n        \"description\": \"Partner\",\n        \"settings\": {\n            \"copyright\": \"Amdocs\",\n            \"idp_setting\": {\n                \"common_idp_for_all_orgs\": false\n            },\n            \"applications\": [],\n            \"gslb_enabled\": true,\n            \"sender_email\": \"noreply-rcloud@rafay.co\",\n            \"visible_roles\": [\n                \"ADMIN\",\n                \"ADMINISTRATOR_READ_ONLY\",\n                \"PROJECT_ADMIN\",\n                \"PROJECT_READ_ONLY\",\n                \"INFRA_ADMIN\",\n                \"INFRA_READ_ONLY\",\n                \"NAMESPACE_ADMIN\",\n                \"NAMESPACE_READ_ONLY\",\n                \"CLUSTER_ADMIN\",\n                \"CLUSTER_TEMPLATE_USER\",\n                \"WORKSPACE_ADMIN\",\n                \"WORKSPACE_READ_ONLY\",\n                \"FINOPS_ADMIN\",\n                \"ENVIRONMENT_ADMIN\",\n                \"AUDITOR_ADMIN\",\n                \"ENVIRONMENT_TEMPLATE_USER\",\n                \"PAAS_PROJECT_ADMIN\",\n                \"PAAS_WORKSPACE_ADMIN\",\n                \"PAAS_WORKSPACE_COLLABORATOR\",\n                \"DEVELOPER\",\n                \"RESEARCHER\",\n                \"DATA_ENGINEER\",\n                \"DATA_SCIENTIST\",\n                \"MLOPS_ENGINEER\",\n                \"GENAI_DEVELOPER\",\n                \"PLATFORM_ADMIN\"\n            ],\n            \"login_page_cta\": \"Login\",\n            \"logo_link_dark\": \"https://upload.wikimedia.org/wikipedia/commons/b/bd/Amdocs-2017-brand-mark.svg\",\n            \"signup_enabled\": true,\n            \"support_portal\": {\n                \"url\": \"\",\n                \"label\": \"Support Portal\",\n                \"enabled\": false\n            },\n            \"applications_view\": \"grid\",\n            \"organization_type\": \"enterprise\",\n            \"page_layout_style\": \"default\",\n            \"group_applications\": false,\n            \"login_page_sso_cta\": \"Login With SSO\",\n            \"privacy_policy_url\": \"https://rafay.co/privacy-policy\",\n            \"ORGANIZATION_APPROVAL\": false,\n            \"login_page_signup_cta\": \"Sign Up\",\n            \"hide_controller_version\": false,\n            \"ACCOUNT_CREATION_STRATEGY\": \"VERIFY\",\n            \"login_page_signup_cta_link\": \"/signup\"\n        },\n        \"created_at\": \"2026-01-08T05:37:10.719046Z\",\n        \"modified_at\": \"2026-01-08T05:39:32.658822Z\",\n        \"host\": \"amdocs.paas.rafay.dev\",\n        \"domain\": \"Team Rafay\",\n        \"tos_link\": \"\",\n        \"logo_link\": \"https://upload.wikimedia.org/wikipedia/commons/b/bd/Amdocs-2017-brand-mark.svg\",\n        \"notification_email\": \"customer-ops@rafay.co\",\n        \"support_team_name\": \"Amdocs\",\n        \"partner_helpdesk_email\": \"customer-ops@rafay.co\",\n        \"partner_product_name\": \"Amdocs\",\n        \"ops_host\": \"ops-amdocs.paas.rafay.dev\",\n        \"fav_icon_link\": \"https://www.amdocs.com/sites/default/files/Favicon-dark_0.png\",\n        \"is_totp_enabled\": false,\n        \"is_synthetic_partner_enabled\": false\n    },\n    \"default_blueprints_enabled\": true,\n    \"referer\": null,\n    \"enable_drift_webhook\": true,\n    \"protected_resources\": {\n        \"Cluster\": true,\n        \"Environment\": true\n    },\n    \"is_default_org\": false,\n    \"external_id\": \"1234\",\n    \"system_templates_enabled\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}/",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "auth",
+                "v1",
+                "organizations",
+                "{{org-id}}",
+                ""
+              ]
+            }
+          },
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"id\": \"lk5xnd2\",\n    \"name\": \"Goodlife\",\n    \"description\": \"\",\n    \"settings\": {\n        \"currency\": \"USD\",\n        \"abac_enabled\": false,\n        \"ipv6_enabled\": false,\n        \"registry_fqdn\": \"\",\n        \"paas_compute_disabled\": false,\n        \"paas_service_disabled\": false,\n        \"whitelistedIP_enabled\": false,\n        \"paas_compute_disable_message\": \"\",\n        \"paas_service_disable_message\": \"\",\n        \"share_skus_with_all_projects_disabled\": false\n    },\n    \"billing_address\": \"\",\n    \"created_at\": \"2026-02-11T13:38:00.868365Z\",\n    \"modified_at\": \"2026-02-11T13:45:06.533442Z\",\n    \"active\": false,\n    \"approved\": true,\n    \"type\": \"free\",\n    \"address_line1\": \"123\",\n    \"address_line2\": \"\",\n    \"city\": \"\",\n    \"state\": \"\",\n    \"country\": \"\",\n    \"partner_id\": \"d27v024\",\n    \"phone\": \"\",\n    \"zipcode\": \"\",\n    \"is_private\": true,\n    \"is_totp_enabled\": false,\n    \"published_workload_count\": 0,\n    \"psps_enabled\": true,\n    \"custom_psps_enabled\": true,\n    \"partner\": {\n        \"id\": \"d27v024\",\n        \"name\": \"Amdocs\",\n        \"description\": \"Partner\",\n        \"settings\": {\n            \"copyright\": \"Amdocs\",\n            \"idp_setting\": {\n                \"common_idp_for_all_orgs\": false\n            },\n            \"applications\": [],\n            \"gslb_enabled\": true,\n            \"sender_email\": \"noreply-rcloud@rafay.co\",\n            \"visible_roles\": [\n                \"ADMIN\",\n                \"ADMINISTRATOR_READ_ONLY\",\n                \"PROJECT_ADMIN\",\n                \"PROJECT_READ_ONLY\",\n                \"INFRA_ADMIN\",\n                \"INFRA_READ_ONLY\",\n                \"NAMESPACE_ADMIN\",\n                \"NAMESPACE_READ_ONLY\",\n                \"CLUSTER_ADMIN\",\n                \"CLUSTER_TEMPLATE_USER\",\n                \"WORKSPACE_ADMIN\",\n                \"WORKSPACE_READ_ONLY\",\n                \"FINOPS_ADMIN\",\n                \"ENVIRONMENT_ADMIN\",\n                \"AUDITOR_ADMIN\",\n                \"ENVIRONMENT_TEMPLATE_USER\",\n                \"PAAS_PROJECT_ADMIN\",\n                \"PAAS_WORKSPACE_ADMIN\",\n                \"PAAS_WORKSPACE_COLLABORATOR\",\n                \"DEVELOPER\",\n                \"RESEARCHER\",\n                \"DATA_ENGINEER\",\n                \"DATA_SCIENTIST\",\n                \"MLOPS_ENGINEER\",\n                \"GENAI_DEVELOPER\",\n                \"PLATFORM_ADMIN\"\n            ],\n            \"login_page_cta\": \"Login\",\n            \"logo_link_dark\": \"https://upload.wikimedia.org/wikipedia/commons/b/bd/Amdocs-2017-brand-mark.svg\",\n            \"signup_enabled\": true,\n            \"support_portal\": {\n                \"url\": \"\",\n                \"label\": \"Support Portal\",\n                \"enabled\": false\n            },\n            \"applications_view\": \"grid\",\n            \"organization_type\": \"enterprise\",\n            \"page_layout_style\": \"default\",\n            \"group_applications\": false,\n            \"login_page_sso_cta\": \"Login With SSO\",\n            \"privacy_policy_url\": \"https://rafay.co/privacy-policy\",\n            \"ORGANIZATION_APPROVAL\": false,\n            \"login_page_signup_cta\": \"Sign Up\",\n            \"hide_controller_version\": false,\n            \"ACCOUNT_CREATION_STRATEGY\": \"VERIFY\",\n            \"login_page_signup_cta_link\": \"/signup\"\n        },\n        \"created_at\": \"2026-01-08T05:37:10.719046Z\",\n        \"modified_at\": \"2026-01-08T05:39:32.658822Z\",\n        \"host\": \"amdocs.paas.rafay.dev\",\n        \"domain\": \"Team Rafay\",\n        \"tos_link\": \"\",\n        \"logo_link\": \"https://upload.wikimedia.org/wikipedia/commons/b/bd/Amdocs-2017-brand-mark.svg\",\n        \"notification_email\": \"customer-ops@rafay.co\",\n        \"support_team_name\": \"Amdocs\",\n        \"partner_helpdesk_email\": \"customer-ops@rafay.co\",\n        \"partner_product_name\": \"Amdocs\",\n        \"ops_host\": \"ops-amdocs.paas.rafay.dev\",\n        \"fav_icon_link\": \"https://www.amdocs.com/sites/default/files/Favicon-dark_0.png\",\n        \"is_totp_enabled\": false,\n        \"is_synthetic_partner_enabled\": false\n    },\n    \"default_blueprints_enabled\": true,\n    \"referer\": null,\n    \"enable_drift_webhook\": true,\n    \"protected_resources\": {\n        \"Cluster\": true,\n        \"Environment\": true\n    },\n    \"is_default_org\": false,\n    \"external_id\": \"1234\",\n    \"system_templates_enabled\": true\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Customer",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "X-RAFAY-API-KEYID",
+            "value": "{{ops-console-api-key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://{{ops-console-domain}}/auth/v1/organizations/{{org-id}}/",
+          "protocol": "https",
+          "host": [
+            "{{ops-console-domain}}"
+          ],
+          "path": [
+            "auth",
+            "v1",
+            "organizations",
+            "{{org-id}}",
+            ""
           ]
         }
       },
@@ -160,13 +365,13 @@
     "type": "apikey",
     "apikey": [
       {
-        "key": "key",
-        "value": "X-API-Key",
+        "key": "value",
+        "value": "{{ra2.d5e85e6682ef25127ecefd64ffacf3deb81fa538.105095542be391018ca1ed916293016997b9a352f152d7b2dc9182e457989a85}}",
         "type": "string"
       },
       {
-        "key": "value",
-        "value": "{{token}}",
+        "key": "key",
+        "value": "X-API-Key",
         "type": "string"
       }
     ]
@@ -176,6 +381,7 @@
       "listen": "prerequest",
       "script": {
         "type": "text/javascript",
+        "requests": {},
         "exec": [
           ""
         ]
@@ -185,6 +391,7 @@
       "listen": "test",
       "script": {
         "type": "text/javascript",
+        "requests": {},
         "exec": [
           ""
         ]
@@ -198,8 +405,7 @@
     },
     {
       "key": "org-id",
-      "value": "",
-      "type": "default"
+      "value": ""
     }
   ]
 }

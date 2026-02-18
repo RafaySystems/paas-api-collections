@@ -1,155 +1,375 @@
 {
   "info": {
-    "_postman_id": "7304c1d6-979c-4a5a-91e9-f89467eca524",
+    "_postman_id": "62f6d4a0-52b8-416e-b4d9-b894500122cb",
     "name": "SKU Management",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "19777892",
-    "_collection_link": "https://go.postman.co/collection/19777892-7304c1d6-979c-4a5a-91e9-f89467eca524?source=collection_link"
+    "_exporter_id": "52142476",
+    "_collection_link": "https://go.postman.co/collection/52142476-62f6d4a0-52b8-416e-b4d9-b894500122cb?source=collection_link"
   },
   "item": [
     {
-      "name": "List Compute Profiles",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "x-api-key",
-            "value": "{{default-org-api-key}}",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/system-catalog/computeprofiles",
-          "protocol": "https",
-          "host": [
-            "{{console-domain}}"
-          ],
-          "path": [
-            "apis",
-            "paas.envmgmt.io",
-            "v1",
-            "projects",
-            "system-catalog",
-            "computeprofiles"
-          ],
-          "query": [
-            {
-              "key": "limit",
-              "value": "50",
-              "disabled": true
-            },
-            {
-              "key": "offset",
-              "value": "0",
-              "type": "text",
-              "disabled": true
+      "name": "Compute",
+      "item": [
+        {
+          "name": "List Compute Profiles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{default-org-api-key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/system-catalog/computeprofiles",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "system-catalog",
+                "computeprofiles"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "disabled": true
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
             }
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get Compute Profile",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "x-api-key",
-            "value": "{{default-org-api-key}}",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/system-catalog/computeprofiles/{{profile-name}}",
-          "protocol": "https",
-          "host": [
-            "{{console-domain}}"
-          ],
-          "path": [
-            "apis",
-            "paas.envmgmt.io",
-            "v1",
-            "projects",
-            "system-catalog",
-            "computeprofiles",
-            "{{profile-name}}"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "List Service Profiles",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "x-api-key",
-            "value": "{{default-org-api-key}}",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/system-catalog/serviceprofiles",
-          "protocol": "https",
-          "host": [
-            "{{console-domain}}"
-          ],
-          "path": [
-            "apis",
-            "paas.envmgmt.io",
-            "v1",
-            "projects",
-            "system-catalog",
-            "serviceprofiles"
-          ],
-          "query": [
-            {
-              "key": "limit",
-              "value": "50",
-              "disabled": true
-            },
-            {
-              "key": "offset",
-              "value": "0",
-              "type": "text",
-              "disabled": true
+          },
+          "response": []
+        },
+        {
+          "name": "Get Compute Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{default-org-api-key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/system-catalog/computeprofiles/{{profile-name}}",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "system-catalog",
+                "computeprofiles",
+                "{{profile-name}}"
+              ]
             }
-          ]
+          },
+          "response": []
+        },
+        {
+          "name": "Share Compute Profile with an Org",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"system_resource_type\": \"PAAS_COMPUTE_PROFILE\",\n    \"system_resource_id\": \"{{profile-id}}\",\n    \"share_type\": \"CUSTOM\",\n    \"org_id_list\": [\n        \"{{org-id}}\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{ops-console-domain}}/v2/sentry/updatesystemresourcemembership",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "v2",
+                "sentry",
+                "updatesystemresourcemembership"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Share Compute Profile to All",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"system_resource_type\": \"PAAS_COMPUTE_PROFILE\",\n    \"system_resource_id\": \"{{profile-id}}\",\n    \"share_type\": \"ALL\",\n    \"org_id_list\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{ops-console-domain}}/v2/sentry/updatesystemresourcemembership",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "v2",
+                "sentry",
+                "updatesystemresourcemembership"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unshare Compute Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"system_resource_type\": \"PAAS_COMPUTE_PROFILE\",\n    \"system_resource_id\": \"{{profile-id}}\",\n    \"share_type\": \"NONE\",\n    \"org_id_list\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{ops-console-domain}}/v2/sentry/updatesystemresourcemembership",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "v2",
+                "sentry",
+                "updatesystemresourcemembership"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "Get Service Profile",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "x-api-key",
-            "value": "{{default-org-api-key}}",
-            "type": "text"
-          }
-        ],
-        "url": {
-          "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/system-catalog/serviceprofiles/{{profile-name}}",
-          "protocol": "https",
-          "host": [
-            "{{console-domain}}"
-          ],
-          "path": [
-            "apis",
-            "paas.envmgmt.io",
-            "v1",
-            "projects",
-            "system-catalog",
-            "serviceprofiles",
-            "{{profile-name}}"
-          ]
+      "name": "Services",
+      "item": [
+        {
+          "name": "Share Service Profile with an Org",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"system_resource_type\": \"PAAS_SERVICE_PROFILE\",\n    \"system_resource_id\": \"{{profile-id}}\",\n    \"share_type\": \"CUSTOM\",\n    \"org_id_list\": [\n        \"{{org-id}}\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{ops-console-domain}}/v2/sentry/updatesystemresourcemembership",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "v2",
+                "sentry",
+                "updatesystemresourcemembership"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Share Service Profile to All",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"system_resource_type\": \"PAAS_SERVICE_PROFILE\",\n    \"system_resource_id\": \"{{profile-id}}\",\n    \"share_type\": \"ALL\",\n    \"org_id_list\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{ops-console-domain}}/v2/sentry/updatesystemresourcemembership",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "v2",
+                "sentry",
+                "updatesystemresourcemembership"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Unshare Service Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-RAFAY-API-KEYID",
+                "value": "{{ops-console-api-key}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"system_resource_type\": \"PAAS_SERVICE_PROFILE\",\n    \"system_resource_id\": \"{{profile-id}}\",\n    \"share_type\": \"NONE\",\n    \"org_id_list\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://{{ops-console-domain}}/v2/sentry/updatesystemresourcemembership",
+              "protocol": "https",
+              "host": [
+                "{{ops-console-domain}}"
+              ],
+              "path": [
+                "v2",
+                "sentry",
+                "updatesystemresourcemembership"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Service Profiles",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{default-org-api-key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/system-catalog/serviceprofiles",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "system-catalog",
+                "serviceprofiles"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "50",
+                  "disabled": true
+                },
+                {
+                  "key": "offset",
+                  "value": "0",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Service Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{default-org-api-key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/paas.envmgmt.io/v1/projects/system-catalog/serviceprofiles/{{profile-name}}",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "paas.envmgmt.io",
+                "v1",
+                "projects",
+                "system-catalog",
+                "serviceprofiles",
+                "{{profile-name}}"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     }
   ],
   "variable": [

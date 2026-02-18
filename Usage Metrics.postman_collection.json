@@ -1,14 +1,27 @@
 {
   "info": {
-    "_postman_id": "e2b990ab-bc69-4f32-9546-3ac0d7a90273",
+    "_postman_id": "f2f8fecd-81e9-4004-af25-4ee10000dd77",
     "name": "Usage Metrics",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "19777892",
-    "_collection_link": "https://go.postman.co/collection/19777892-e2b990ab-bc69-4f32-9546-3ac0d7a90273?source=collection_link"
+    "_exporter_id": "52142476",
+    "_collection_link": "https://go.postman.co/collection/52142476-f2f8fecd-81e9-4004-af25-4ee10000dd77?source=collection_link"
   },
   "item": [
     {
       "name": "Compute Instance Usage",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
       "request": {
         "method": "GET",
         "header": [
@@ -58,7 +71,99 @@
           ]
         }
       },
-      "response": []
+      "response": [
+        {
+          "name": "Compute Instance Usage",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-api-key",
+                "value": "{{default-org-api-key}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://{{console-domain}}/apis/billing.envmgmt.io/v1/metrics/partner/instance/kind/compute/usage?range_from={{start_time}}&range_to={{end_time}}",
+              "protocol": "https",
+              "host": [
+                "{{console-domain}}"
+              ],
+              "path": [
+                "apis",
+                "billing.envmgmt.io",
+                "v1",
+                "metrics",
+                "partner",
+                "instance",
+                "kind",
+                "compute",
+                "usage"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "400",
+                  "disabled": true
+                },
+                {
+                  "key": "range_from",
+                  "value": "{{start_time}}"
+                },
+                {
+                  "key": "range_to",
+                  "value": "{{end_time}}"
+                },
+                {
+                  "key": "instance_organization_id",
+                  "value": "{{org-id}}",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "content-type",
+              "value": "application/json"
+            },
+            {
+              "key": "date",
+              "value": "Fri, 13 Feb 2026 10:20:49 GMT"
+            },
+            {
+              "key": "x-envoy-upstream-service-time",
+              "value": "2737"
+            },
+            {
+              "key": "server",
+              "value": "istio-envoy"
+            },
+            {
+              "key": "strict-transport-security",
+              "value": "max-age=63072000; includeSubDomains; preload"
+            },
+            {
+              "key": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"kind\": \"compute\",\n    \"partner_id\": \"d27v024\",\n    \"organization_id\": \"dk3opkn\",\n    \"instance_usage_data\": [\n        {\n            \"instance_organization_id\": \"lk5xnd2\",\n            \"instance_organization_name\": \"Goodlife\",\n            \"instance_project_id\": \"7krxjzk\",\n            \"instance_project_name\": \"development\",\n            \"profile_id\": \"019c2891-3cd2-7aec-a429-283874929fbd\",\n            \"profile_name\": \"small-gpu-vm\",\n            \"instance_id\": \"019c510c-86c4-707d-aef7-15fa6af0422e\",\n            \"instance_name\": \"dev-vm-1\",\n            \"created_at\": \"2026-02-12T08:51:41Z\",\n            \"parameters\": [\n                {\n                    \"name\": \"CPU\",\n                    \"usage\": \"20.59h\",\n                    \"is_label\": true,\n                    \"raw_usage\": 20.594723,\n                    \"label_value\": \"24\"\n                },\n                {\n                    \"name\": \"Disk\",\n                    \"usage\": \"20.59h\",\n                    \"is_label\": true,\n                    \"raw_usage\": 20.594723,\n                    \"label_value\": \"150\"\n                },\n                {\n                    \"name\": \"ServiceID\",\n                    \"usage\": \"20.59h\",\n                    \"is_label\": true,\n                    \"raw_usage\": 20.594723,\n                    \"label_value\": \"6c9da2c6-adb1-4a1b-90b3-2fde7d5632aa\"\n                },\n                {\n                    \"name\": \"GPU\",\n                    \"usage\": \"20.59h\",\n                    \"is_label\": true,\n                    \"raw_usage\": 20.594723,\n                    \"label_value\": \"1\"\n                },\n                {\n                    \"name\": \"Memory\",\n                    \"usage\": \"20.59h\",\n                    \"is_label\": true,\n                    \"raw_usage\": 20.594723,\n                    \"label_value\": \"256\"\n                }\n            ],\n            \"usage\": \"20.59h\",\n            \"raw_usage\": 20.594723,\n            \"start_time\": \"2026-02-12T00:00:00Z\",\n            \"end_time\": \"2026-02-13T10:20:46Z\"\n        }\n    ],\n    \"count\": 1,\n    \"offset\": 0,\n    \"limit\": 10,\n    \"range_from\": \"2026-02-12T00:00:00Z\",\n    \"range_to\": \"2026-02-13T10:20:46Z\"\n}"
+        }
+      ]
     },
     {
       "name": "Service Instance Usage",
@@ -125,7 +230,7 @@
           }
         ],
         "url": {
-          "raw": "https://{{console-domain}}/apis/billing.envmgmt.io/v1/metrics/partner/profile/kind/compute/usage?range_from={{start_time}}&range_to={{end_time}}&offset",
+          "raw": "https://{{console-domain}}/apis/billing.envmgmt.io/v1/metrics/partner/profile/kind/compute/usage?range_from={{start_time}}&range_to={{end_time}}",
           "protocol": "https",
           "host": [
             "{{console-domain}}"
@@ -157,11 +262,12 @@
             },
             {
               "key": "offset",
-              "value": null
+              "value": null,
+              "disabled": true
             },
             {
               "key": "instance_organization_id",
-              "value": null,
+              "value": "",
               "type": "text",
               "disabled": true
             }
@@ -228,16 +334,43 @@
       "response": []
     }
   ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "var now = new Date();",
+          "//now.setUTCMinutes(0, 0, 0); // Set minutes and seconds to zero",
+          "",
+          "var previous = new Date(now);",
+          "previous.setUTCDate(now.getUTCDate() - 31); // Subtract 24 hours",
+          "",
+          "var formattedCurrentTime = now.toISOString(); // Current time in ISO format",
+          "var formattedPreviousTime = previous.toISOString(); // 24 hours before",
+          "",
+          "pm.variables.set(\"end_time\", encodeURIComponent(formattedCurrentTime));"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
   "variable": [
     {
       "key": "start_time",
-      "value": "",
-      "type": "default"
-    },
-    {
-      "key": "end_time",
-      "value": "",
-      "type": "default"
+      "value": ""
     }
   ]
 }
