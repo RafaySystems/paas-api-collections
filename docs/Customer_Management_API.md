@@ -56,6 +56,7 @@ Retrieve a list of customer organizations.
 | offset | int | Pagination offset |
 | name | string | Filter by name |
 | external_id | string | Filter by external ID |
+| referer | string | Filter by referer |
 
 ---
 
@@ -72,13 +73,17 @@ Fetch details of a specific customer.
 Update customer organization details.
 
 **Request Body**
+Include the complete from GET Response and update the required fields.
 ```json
 {
   "id": "{org-id}",
   "name": "Example Ltd",
   "active": true,
   "approved": true,
-  "type": "free"
+  "type": "free",
+  "referer": "CRM123",
+  "external_id": "xyz",
+  ...
 }
 ```
 
@@ -90,5 +95,4 @@ Update customer organization details.
 |--------|-------------|
 | ops-console-domain | Rafay console domain |
 | ops-api-key | API key ID |
-| token | Bearer token |
 | org-id | Organization ID |
