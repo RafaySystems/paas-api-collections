@@ -8,7 +8,20 @@ All documents are intended to be rendered directly on GitHub and kept in sync wi
 ---
 
 ## 📚 API Documentation Index
+The following Postman collections and API documentation are available for the Rafay PaaS APIs.
 
+| Category | API | Documentation | Postman Collection |
+|----------|-----|---------------|--------------------|
+| 🏢 Organization Management | Customer Management | [Customer Management API](./docs/Customer_Management_API.md) | [Download JSON](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/Customer%20Management.postman_collection.json) |
+| 🚀 Customer Workflows | Customer Workflow APIs | [Customer Workflow APIs](./docs/Customer_Workflow_APIs_Documentation.md) | [Download JSON](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/Customer%20Workflow%20APIs.postman_collection.json) |
+| 🧾 SKU & Catalog Management | SKU Management | [SKU Management API](./docs/SKU_Management_API.md) | [Download JSON](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/SKU%20Management.postman_collection.json) |
+| 📊 Usage & Billing Metrics | PaaS Usage Metrics | [PaaS Usage Metrics API](./docs/Usage_Metrics_API.md) | [Download JSON](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/Usage%20Metrics.postman_collection.json) |
+| 📊 Usage & Billing Metrics | Token Factory Usage | [Token Factory Usage API](./docs/Token_Usage_API.md) | [Download JSON](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/Token%20Usage.postman_collection.json) |
+| 📣 Events & Auditing | PaaS Events | [PaaS Events API](./docs/PaaS_Events_API.md) | [Download JSON](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/PaaS%20Events.postman_collection.json) |
+
+---
+
+## Documentation Categories
 ### 🔐 Customer & Organization Management
 - **[Customer Management API](./docs/Customer_Management_API.md)**  
   Create, update, list, and manage customer organizations.
@@ -32,3 +45,21 @@ All documents are intended to be rendered directly on GitHub and kept in sync wi
   Fetch PaaS-related lifecycle and operational events for compute and service instances.
 
 ---
+
+### 🤖 Token Factory Usage
+
+- **Documentation:** [Token Usage API](./docs/Token_Usage_API.md)
+- **Postman Collection:** [Download JSON](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/Token%20Usage.postman_collection.json)
+
+Retrieve aggregated Token Factory usage metrics for reporting, analytics, and billing. The collection includes APIs for:
+- Aggregated token usage
+- Total aggregated token usage
+
+---
+
+### 🚀 Customer Workflows
+
+- **[Customer Workflow APIs](./docs/Customer_Workflow_APIs_Documentation.md)**  
+  Provision and manage customer resources within an organization, including projects and workspaces, to support customer onboarding and lifecycle workflows.
+
+  **Postman Collection:** [Download JSON](https://raw.githubusercontent.com/RafaySystems/paas-api-collections/refs/heads/main/Customer%20Workflow%20APIs.postman_collection.json)

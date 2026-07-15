@@ -1,0 +1,122 @@
+{
+  "info": {
+    "_postman_id": "b9c71383-7d62-4b0e-bfd3-a8bfd3537ebb",
+    "name": "Token Usage",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49193192",
+    "_collection_link": "https://go.postman.co/collection/49193192-b9c71383-7d62-4b0e-bfd3-a8bfd3537ebb?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Aggregated",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-RAFAY",
+            "value": "<API_KEY>",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"start\":1779301800,\"end\":1779960149}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ops-console.gpupaas-qc.dev.rafay-edge.net/api.gaap.k8smgmt.io/v1alpha1/model/usage/aggregated?limit=30",
+          "protocol": "https",
+          "host": [
+            "ops-console",
+            "gpupaas-qc",
+            "dev",
+            "rafay-edge",
+            "net"
+          ],
+          "path": [
+            "api.gaap.k8smgmt.io",
+            "v1alpha1",
+            "model",
+            "usage",
+            "aggregated"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "30"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "TotalAggregated",
+      "protocolProfileBehavior": {
+        "disabledSystemHeaders": {
+          "content-type": true,
+          "content-length": true,
+          "host": true,
+          "accept": true,
+          "accept-encoding": true,
+          "user-agent": true,
+          "connection": true
+        }
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "X-RAFAY",
+            "value": "<API_KEY>",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"start\":1769806600,\"end\":1779960140}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://ops-console.gpupaas-qc.dev.rafay-edge.net/api.gaap.k8smgmt.io/v1alpha1/model/usage/totalaggregated?page=0&limit=10",
+          "protocol": "https",
+          "host": [
+            "ops-console",
+            "gpupaas-qc",
+            "dev",
+            "rafay-edge",
+            "net"
+          ],
+          "path": [
+            "api.gaap.k8smgmt.io",
+            "v1alpha1",
+            "model",
+            "usage",
+            "totalaggregated"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0",
+              "type": "text"
+            },
+            {
+              "key": "limit",
+              "value": "10",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
